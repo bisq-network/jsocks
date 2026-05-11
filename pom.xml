@@ -3,12 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.bisq-network.jsocks</groupId>
 	<artifactId>jsocks</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>SOCKS proxy</name>
 	<description>Cloned from http://sourceforge.net/projects/jsocks/</description>
 
 	<properties>
 		<project.build.sourceEncoding>ASCII</project.build.sourceEncoding>
+		<maven.compiler.release>21</maven.compiler.release>
+		<pmd.version>7.24.0</pmd.version>
 	</properties>
 
 
@@ -16,7 +18,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.5.11</version>
+			<version>2.0.17</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -31,22 +33,31 @@
 		</resources>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
+				<version>3.15.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>2.7.1</version>
+				<version>3.28.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>net.sourceforge.pmd</groupId>
+						<artifactId>pmd-core</artifactId>
+						<version>${pmd.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>net.sourceforge.pmd</groupId>
+						<artifactId>pmd-java</artifactId>
+						<version>${pmd.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.9.1</version>
+				<version>3.6.0</version>
 			</plugin>
 		</plugins>
 	</build>
